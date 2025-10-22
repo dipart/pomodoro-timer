@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>番茄时钟 - Pomodoro Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="timer-card">
+            <header class="header">
+                <h1>🍅 番茄时钟</h1>
+                <p class="subtitle">专注工作，高效休息</p>
+            </header>
+
+            <div class="mode-selector">
+                <button class="mode-btn active" data-mode="work">工作</button>
+                <button class="mode-btn" data-mode="short-break">短休息</button>
+                <button class="mode-btn" data-mode="long-break">长休息</button>
+            </div>
+
+            <div class="timer-display">
+                <div class="time-circle">
+                    <svg class="progress-ring" width="280" height="280">
+                        <circle class="progress-ring-circle-bg" cx="140" cy="140" r="120" />
+                        <circle class="progress-ring-circle" cx="140" cy="140" r="120" />
+                    </svg>
+                    <div class="time-text">
+                        <span class="time" id="time-display">25:00</span>
+                        <span class="mode-text" id="mode-text">工作时间</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="control-btn start-btn" id="start-btn">
+                    <span class="btn-icon">▶</span>
+                    <span class="btn-text">开始</span>
+                </button>
+                <button class="control-btn pause-btn" id="pause-btn" style="display: none;">
+                    <span class="btn-icon">⏸</span>
+                    <span class="btn-text">暂停</span>
+                </button>
+                <button class="control-btn reset-btn" id="reset-btn">
+                    <span class="btn-icon">⟲</span>
+                    <span class="btn-text">重置</span>
+                </button>
+            </div>
+
+            <div class="settings">
+                <h3>设置</h3>
+                <div class="setting-group">
+                    <label for="work-duration">工作时长 (分钟):</label>
+                    <input type="number" id="work-duration" min="1" max="60" value="25">
+                </div>
+                <div class="setting-group">
+                    <label for="short-break-duration">短休息时长 (分钟):</label>
+                    <input type="number" id="short-break-duration" min="1" max="30" value="5">
+                </div>
+                <div class="setting-group">
+                    <label for="long-break-duration">长休息时长 (分钟):</label>
+                    <input type="number" id="long-break-duration" min="1" max="60" value="15">
+                </div>
+                <div class="setting-group">
+                    <label for="sound-enabled">
+                        <input type="checkbox" id="sound-enabled" checked>
+                        启用提醒音效
+                    </label>
+                </div>
+            </div>
+
+            <div class="stats">
+                <h3>今日统计</h3>
+                <div class="stat-item">
+                    <span class="stat-label">完成番茄:</span>
+                    <span class="stat-value" id="completed-pomodoros">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">专注时间:</span>
+                    <span class="stat-value" id="focus-time">0 分钟</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
